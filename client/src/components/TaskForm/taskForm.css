@@ -1,0 +1,33 @@
+.taskForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 90vh;
+  background: #333;
+}
+
+.taskForm input[type="text"],
+textarea,
+input[type="date"],
+button {
+  width: 30rem;
+  margin: 5px;
+  border-radius: 5px;
+  border: 1px solid #999;
+  padding: 10px;
+}
+
+textarea {
+  resize: none;
+}
+
+.taskForm p {
+  color: #ddd;
+  margin: 10px 0 0 10px;
+}
+
+button {
+  margin-top: 20px;
+}

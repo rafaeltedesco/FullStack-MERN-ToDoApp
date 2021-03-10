@@ -1,4 +1,8 @@
 import React, {Component} from 'react'
+import './taskForm.css'
+import getDate from './../../utils/formatDate'
+import TaskService from './../../services/TaskService'
+
 
 class TaskForm extends Component {
   constructor(props) {
@@ -7,7 +11,7 @@ class TaskForm extends Component {
       task: {
         taskName: '',
         description: '',
-        startDate: '2021-03-10',
+        startDate: getDate(),
         endDate: '2021-03-12',
         status: 'pending'
       },
@@ -17,7 +21,14 @@ class TaskForm extends Component {
     this.handleSubmit = this.handleSubmit.bind(this)
   }
 
-  registerTask(task) { 
+  async registerTask(task) {
+    console.log(task)
+    TaskService.createTask(task)
+    .then(res=> {
+      console.log(res)
+    }, err => {
+      console.log(err.message)
+    })
     
   }
 
@@ -61,19 +72,23 @@ class TaskForm extends Component {
   render() {
     return (
       <section>
-        <form onSubmit={this.handleSubmit}>
-          <input type="text" name="taskName" value={this.state.task.taskName} placeholder="Type your task name here..."
-          onChange={this.handleChange} />
-          <textarea name="description" value={this.state.task.description} placeholder="Type your task description..."
-          onChange={this.handleChange} />
-          <input type="date" value={this.state.task.startDate} name="startDate" onChange={this.handleChange}/>
+        <form className="taskForm" onSubmit={this.handleSubmit}>
+          <div className="tasksInfo">
+            <p>Task Name</p>
+            <input type="text" name="taskName" value={this.state.task.taskName} placeholder="Type your task name here..."
+            onChange={this.handleChange} />
+            <p>Description</p>
+            <textarea name="description" value={this.state.task.description} placeholder="Type your task description..."
+            onChange={this.handleChange} />
+          </div>
+          <div className="datesBox">
+            <p>Start Date:</p>
+            <input type="date" value={this.state.task.startDate} name="startDate" onChange={this.handleChange}/>
+            <p>End Date:</p>
+            <input type="date" value={this.state.task.endDate} name="endDate" onChange={this.handleChange}/>
+          </div>
           <button disabled={this.state.btnState} >Add Task</button>
         </form>
-        {this.state.task.taskName}
-        {this.state.task.description}
-        {this.state.task.startDate}
-        {this.state.task.endDate}
-        {this.state.task.status}
       </section>
     )
   }
