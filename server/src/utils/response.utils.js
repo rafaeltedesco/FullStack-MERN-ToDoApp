@@ -6,7 +6,7 @@ class ResponseJSON {
   }
 
   get response() {
-    return Object.keys(this._data).length >= 1 ? {status: this._status, message: this._message, data: this._data} :
+    return Object.keys(this._data).length >= 1 ? {status: this._status, message: this._message, tasks: this._data} :
     {status: this._status, message: this._message}
   }
 }

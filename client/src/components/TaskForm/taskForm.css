@@ -31,3 +31,7 @@ textarea {
 button {
   margin-top: 20px;
 }
+
+.taskLink {
+  color: #333;
+}
