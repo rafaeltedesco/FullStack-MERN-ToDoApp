@@ -4,6 +4,7 @@ import getDate from './../../utils/formatDate'
 import TaskService from './../../services/TaskService'
 import {Link} from 'react-router-dom'
 
+
 class TaskForm extends Component {
   constructor(props) {
     super(props)
@@ -19,13 +20,17 @@ class TaskForm extends Component {
       responseError: '',
       btnState: true,
     }
+    this.refTaskInput = React.createRef()
     this.handleChange = this.handleChange.bind(this)
     this.addTask = this.addTask.bind(this)
   }
 
   registerTask(task) {
     TaskService.createTask(task)
-    .then(res=> this.setState({responseState:res}), error => this.setState({responseError: error}))
+    .then(res=> this.setState({responseState:res}), error => {
+      this.setState({responseError: error})
+      console.log('Error: ', this.state.responseError)
+    })
   }
 
   canActivateBtn() {
@@ -55,13 +60,18 @@ class TaskForm extends Component {
   addTask(ev) {
     ev.preventDefault()
     let state = {...this.state}
-    if (state.task.task.length >= 4) {
-      this.registerTask(state.task)  
+    if (state.task.task.length >= 4 && state.task.description.length >= 4 &&
+      state.task.startDate && state.task.endDate) {
+      this.registerTask(state.task)
+      alert('New Task added!')   
     }
     else {
       alert('Cannot add task')
     }
     state.task.task = ''
+    state.task.description = ''
+    this.refTaskInput.current.focus()
+  
     this.setState(state)
   }
 
@@ -72,7 +82,7 @@ class TaskForm extends Component {
           <form className="taskForm">
             <div className="tasksInfo">
               <p>Task Name</p>
-              <input type="text" name="task" value={this.state.task.task} placeholder="Type your task name here..."
+              <input type="text" ref={this.refTaskInput} name="task" value={this.state.task.task} placeholder="Type your task name here..."
               onChange={this.handleChange} />
               <p>Description</p>
               <textarea name="description" value={this.state.task.description} placeholder="Type your task description..."

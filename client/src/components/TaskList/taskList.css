@@ -1,0 +1,64 @@
+.taskContainer {
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  height: auto;
+  background-color: #333;
+}
+
+.cardTitle {
+  color: #333;
+  border-bottom: 1px solid #333;
+  margin-bottom: 5px;
+}
+
+.pending {
+  color: red;
+}
+
+.done {
+  color: rgb(221, 94, 9);
+}
+
+.late {
+  color: red;
+}
+
+.tasksCards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+}
+
+.taskBox {
+  background-color: #ddd;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  width: 300px;
+  margin: 10px;
+  border-radius: 10px;
+}
+
+.taskBox h3 {
+  text-transform: uppercase;
+}
+
+.back {
+  display: flex;
+  justify-content: center;
+}
+
+.btnBack {
+  width: 50vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #222;
+  border-radius: 10px;
+  padding: 17px;
+  cursor: pointer;
+  margin-bottom: 20px;
+}

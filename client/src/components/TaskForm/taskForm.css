@@ -32,6 +32,14 @@ button {
   margin-top: 20px;
 }
 
+button:hover {
+  cursor: pointer;
+}
+
+button:disabled {
+  cursor: not-allowed;
+}
+
 .taskLink {
   color: #333;
 }

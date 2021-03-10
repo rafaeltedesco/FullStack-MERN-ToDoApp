@@ -1,0 +1,24 @@
+{
+  "name": "todoapp_fullstack",
+  "version": "1.0.0",
+  "description": "��#\u0000 \u0000F\u0000u\u0000l\u0000l\u0000S\u0000t\u0000a\u0000c\u0000k\u0000-\u0000M\u0000E\u0000R\u0000N\u0000-\u0000T\u0000o\u0000D\u0000o\u0000A\u0000p\u0000p\u0000\r\u0000 \u0000",
+  "main": "index.js",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "dotenv": "^8.2.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rafaeltedesco/FullStack-MERN-ToDoApp.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rafaeltedesco/FullStack-MERN-ToDoApp/issues"
+  },
+  "homepage": "https://github.com/rafaeltedesco/FullStack-MERN-ToDoApp#readme"
+}
